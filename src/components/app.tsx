@@ -1,4 +1,4 @@
-import { RenderMainHeader } from './main-header.tsx';
+import { MainHeader } from './main-header.tsx';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           </div>
         </div>
       </header>
-      <RenderMainHeader />
+      <MainHeader />
     </>
   );
 }

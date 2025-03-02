@@ -1,13 +1,14 @@
 
-
-function RenderPlaceCard ({isPremium, imageCard, price, widthCard, nameCard, typeCard} : {
+type PlaceCardProps = {
   isPremium: boolean;
   imageCard: string;
   price: number;
   widthCard: string;
   nameCard: string;
   typeCard: string;
-}) {
+};
+
+function PlaceCard ({isPremium, imageCard, price, widthCard, nameCard, typeCard} : PlaceCardProps) {
   return (
     <article className="cities__card place-card">
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
@@ -44,4 +45,4 @@ function RenderPlaceCard ({isPremium, imageCard, price, widthCard, nameCard, typ
   );
 }
 
-export {RenderPlaceCard};
+export {PlaceCard};
