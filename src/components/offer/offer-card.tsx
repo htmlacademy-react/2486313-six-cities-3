@@ -1,5 +1,4 @@
-
-type PlaceCardProps = {
+type OfferCardProps = {
   isPremium: boolean;
   imageCard: string;
   price: number;
@@ -8,11 +7,11 @@ type PlaceCardProps = {
   typeCard: string;
 };
 
-function PlaceCard ({isPremium, imageCard, price, widthCard, textCard, typeCard} : PlaceCardProps) {
+function OfferCard ({isPremium, imageCard, price, widthCard, textCard, typeCard} : OfferCardProps) {
   return (
-    <article className="cities__card place-card">
+    <article className='near-places__card place-card'>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="near-places__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={imageCard} width="260" height="200" alt="Place image"/>
         </a>
@@ -45,4 +44,4 @@ function PlaceCard ({isPremium, imageCard, price, widthCard, textCard, typeCard}
   );
 }
 
-export {PlaceCard};
+export {OfferCard};

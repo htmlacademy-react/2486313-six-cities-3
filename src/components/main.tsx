@@ -2,7 +2,7 @@ import { City } from './city.tsx';
 import { PlaceCard } from './place-card.tsx';
 
 
-function MainHeader() {
+function PageMain() {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -39,11 +39,11 @@ function MainHeader() {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              <PlaceCard isPremium imageCard="img/apartment-01.jpg" price={120} widthCard="80%" nameCard='Beautiful &amp; luxurious apartment at great location' typeCard='Apartment'/>
-              <PlaceCard isPremium={false} imageCard="img/room.jpg" price={80} widthCard="80%" nameCard='Wood and stone place' typeCard='Room'/>
-              <PlaceCard isPremium={false} imageCard="img/apartment-02.jpg" price={132} widthCard="80%" nameCard='Canal View Prinsengracht' typeCard='Apartment'/>
-              <PlaceCard isPremium imageCard="img/apartment-03.jpg" price={180} widthCard="100%" nameCard='Nice, cozy, warm big bed apartment' typeCard='Apartment'/>
-              <PlaceCard isPremium={false} imageCard="img/room.jpg" price={80} widthCard="80%" nameCard='Wood and stone place' typeCard='Room'/>
+              <PlaceCard isPremium imageCard="img/apartment-01.jpg" price={120} widthCard="80%" textCard='Beautiful &amp; luxurious apartment at great location' typeCard='Apartment'/>
+              <PlaceCard isPremium={false} imageCard="img/room.jpg" price={80} widthCard="80%" textCard='Wood and stone place' typeCard='Room'/>
+              <PlaceCard isPremium={false} imageCard="img/apartment-02.jpg" price={132} widthCard="80%" textCard='Canal View Prinsengracht' typeCard='Apartment'/>
+              <PlaceCard isPremium imageCard="img/apartment-03.jpg" price={180} widthCard="100%" textCard='Nice, cozy, warm big bed apartment' typeCard='Apartment'/>
+              <PlaceCard isPremium={false} imageCard="img/room.jpg" price={80} widthCard="80%" textCard='Wood and stone place' typeCard='Room'/>
             </div>
           </section>
           <div className="cities__right-section">
@@ -55,4 +55,4 @@ function MainHeader() {
   );
 }
 
-export {MainHeader};
+export {PageMain};
