@@ -31,10 +31,10 @@ function Offer({offers} : OfferProps) {
         </div>
         <div className="offer__container container">
           <div className="offer__wrapper">
-            { offer.isPremium ? <div className="offer__mark"><span>Premium</span></div> : ''}
+            { offer?.isPremium ? <div className="offer__mark"><span>Premium</span></div> : ''}
             <div className="offer__name-wrapper">
               <h1 className="offer__name">
-                { offer.title }
+                { offer?.title }
               </h1>
               <button className="offer__bookmark-button button" type="button">
                 <svg className="offer__bookmark-icon" width="31" height="33">
@@ -45,18 +45,18 @@ function Offer({offers} : OfferProps) {
             </div>
             <div className="offer__rating rating">
               <div className="offer__stars rating__stars">
-                <span style={{width: offer.rating}}></span>
+                <span style={{width: offer?.rating}}></span>
                 <span className="visually-hidden">Rating</span>
               </div>
-              <span className="offer__rating-value rating__value">{offer.rating}</span>
+              <span className="offer__rating-value rating__value">{offer?.rating}</span>
             </div>
             <ul className="offer__features">
               <OfferFeature textContent={ offer?.city.name } />
-              <OfferFeature textContent= {`${offer.bedrooms} Bedrooms`} />
-              <OfferFeature textContent= {`Max ${ offer.maxAdults } adults`} />
+              <OfferFeature textContent= {`${offer?.bedrooms} Bedrooms`} />
+              <OfferFeature textContent= {`Max ${ offer?.maxAdults } adults`} />
             </ul>
             <div className="offer__price">
-              <b className="offer__price-value">&euro;{offer.price}</b>
+              <b className="offer__price-value">&euro;{offer?.price}</b>
               <span className="offer__price-text">&nbsp;night</span>
             </div>
             <div className="offer__inside">
@@ -76,7 +76,7 @@ function Offer({offers} : OfferProps) {
             </div>
             <div className="offer__host">
               <h2 className="offer__host-title">Meet the host</h2>
-              <OfferHost image={ offer.host.avatarUrl } name={ offer.host.name } status={ offer.host.isPro } description={ offer.description }/>
+              <OfferHost image={ offer?.host.avatarUrl } name={ offer?.host.name } status={ offer?.host.isPro } description={ offer?.description }/>
             </div>
             <section className="offer__reviews reviews">
               <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
@@ -109,9 +109,9 @@ function Offer({offers} : OfferProps) {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            <OfferCard isPremium={false} imageCard="img/room.jpg" price={80} widthCard="80%" textCard='Wood and stone place' typeCard='Room'/>
-            <OfferCard isPremium={false} imageCard="img/apartment-02.jpg" price={132} widthCard="80%" textCard='Canal View Prinsengracht' typeCard='Apartment'/>
-            <OfferCard isPremium imageCard="img/apartment-03.jpg" price={180} widthCard="100%" textCard='Nice, cozy, warm big bed apartment' typeCard='Apartment'/>
+            <OfferCard isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
+            <OfferCard isPremium={false} image="img/apartment-02.jpg" price={132} width="80%" text='Canal View Prinsengracht' type='Apartment'/>
+            <OfferCard isPremium image="img/apartment-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
           </div>
         </section>
       </div>

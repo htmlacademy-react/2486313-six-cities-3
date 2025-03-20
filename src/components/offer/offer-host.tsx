@@ -1,10 +1,9 @@
-import { OfferHostText } from './offer-host-text.tsx';
 
 type OfferHostProps = {
-  image: string;
-  name: string;
-  status: boolean;
-  description: string;
+  image: string | undefined;
+  name: string | undefined;
+  status: boolean | undefined;
+  description: string | undefined;
 }
 
 function OfferHost({image, name, status, description} : OfferHostProps) {
@@ -22,7 +21,9 @@ function OfferHost({image, name, status, description} : OfferHostProps) {
         </span>
       </div>
       <div className="offer__description">
-        <OfferHostText text={description}/>
+        <p className="offer__text">
+          {description}
+        </p>
       </div>
     </>
   );

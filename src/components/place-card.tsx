@@ -1,20 +1,12 @@
+import { CardProps } from '../types.ts';
 
-type PlaceCardProps = {
-  isPremium: boolean;
-  imageCard: string;
-  price: number;
-  widthCard: string;
-  textCard: string;
-  typeCard: string;
-};
-
-function PlaceCard ({isPremium, imageCard, price, widthCard, textCard, typeCard} : PlaceCardProps) {
+function PlaceCard ({isPremium, image, price, width, text, type} : CardProps) {
   return (
     <article className="cities__card place-card">
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={imageCard} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={image} width="260" height="200" alt="Place image"/>
         </a>
       </div>
       <div className="place-card__info">
@@ -32,14 +24,14 @@ function PlaceCard ({isPremium, imageCard, price, widthCard, textCard, typeCard}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: widthCard}}></span>
+            <span style={{width: width}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{textCard}</a>
+          <a href="#">{text}</a>
         </h2>
-        <p className="place-card__type">{typeCard}</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );

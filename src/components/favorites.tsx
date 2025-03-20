@@ -17,8 +17,8 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <FavoritesCard isPremium imageCard="img/apartment-small-03.jpg" price={180} widthCard="100%" textCard='Nice, cozy, warm big bed apartment' typeCard='Apartment'/>
-                  <FavoritesCard isPremium={false} imageCard="img/room-small.jpg" price={80} widthCard="80%" textCard='Wood and stone place' typeCard='Room'/>
+                  <FavoritesCard isPremium image="img/apartment-small-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
+                  <FavoritesCard isPremium={false} image="img/room-small.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
                 </div>
               </li>
 
@@ -31,7 +31,7 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <FavoritesCard isPremium={false} imageCard="img/apartment-small-04.jpg" price={180} widthCard="100%" textCard='White castle' typeCard='Apartment'/>
+                  <FavoritesCard isPremium={false} image="img/apartment-small-04.jpg" price={180} width="100%" text='White castle' type='Apartment'/>
                 </div>
               </li>
             </ul>
