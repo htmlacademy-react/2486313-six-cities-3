@@ -1,5 +1,6 @@
 
 export type CardProps = {
+  typeCard: string;
   isPremium: boolean;
   image: string;
   price: number;

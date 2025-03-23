@@ -1,5 +1,6 @@
 import { City } from './city.tsx';
-import { PlaceCard } from './place-card.tsx';
+import { Card } from './card.tsx';
+import { TypeCard } from '../const.tsx';
 
 
 function PageMain() {
@@ -39,11 +40,11 @@ function PageMain() {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              <PlaceCard isPremium image="img/apartment-01.jpg" price={120} width="80%" text='Beautiful &amp; luxurious apartment at great location' type='Apartment'/>
-              <PlaceCard isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
-              <PlaceCard isPremium={false} image="img/apartment-02.jpg" price={132} width="80%" text='Canal View Prinsengracht' type='Apartment'/>
-              <PlaceCard isPremium image="img/apartment-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
-              <PlaceCard isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
+              <Card typeCard={TypeCard.Place} isPremium image="img/apartment-01.jpg" price={120} width="80%" text='Beautiful &amp; luxurious apartment at great location' type='Apartment'/>
+              <Card typeCard={TypeCard.Place} isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
+              <Card typeCard={TypeCard.Place} isPremium={false} image="img/apartment-02.jpg" price={132} width="80%" text='Canal View Prinsengracht' type='Apartment'/>
+              <Card typeCard={TypeCard.Place} isPremium image="img/apartment-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
+              <Card typeCard={TypeCard.Place} isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
             </div>
           </section>
           <div className="cities__right-section">

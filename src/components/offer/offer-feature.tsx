@@ -1,10 +1,22 @@
+type OfferFeatureProps = {
+  placeName: string | undefined;
+  bedrooms: number | undefined;
+  maxAdults: number | undefined;
+}
 
-
-function OfferFeature({textContent} : {textContent: string | undefined}) {
+function OfferFeature({placeName, bedrooms, maxAdults} : OfferFeatureProps) {
   return (
-    <li className="offer__feature offer__feature--entire">
-      {textContent}
-    </li>
+    <ul className="offer__features">
+      <li className="offer__feature offer__feature--entire">
+        {placeName}
+      </li>
+      <li className="offer__feature offer__feature--bedrooms">
+        {bedrooms} Bedrooms
+      </li>
+      <li className="offer__feature offer__feature--adults">
+        Max {maxAdults} adults
+      </li>
+    </ul>
   );
 }
 

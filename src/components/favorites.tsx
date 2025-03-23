@@ -1,4 +1,5 @@
-import { FavoritesCard } from './favorites-card.tsx';
+import { Card } from './card.tsx';
+import { TypeCard } from '../const';
 
 function Favorites() {
   return(
@@ -17,8 +18,8 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <FavoritesCard isPremium image="img/apartment-small-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
-                  <FavoritesCard isPremium={false} image="img/room-small.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
+                  <Card typeCard={TypeCard.Favorites} isPremium image="img/apartment-small-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
+                  <Card typeCard={TypeCard.Favorites} isPremium={false} image="img/room-small.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
                 </div>
               </li>
 
@@ -31,7 +32,7 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <FavoritesCard isPremium={false} image="img/apartment-small-04.jpg" price={180} width="100%" text='White castle' type='Apartment'/>
+                  <Card typeCard={TypeCard.Favorites} isPremium={false} image="img/apartment-small-04.jpg" price={180} width="100%" text='White castle' type='Apartment'/>
                 </div>
               </li>
             </ul>

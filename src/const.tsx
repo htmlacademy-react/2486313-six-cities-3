@@ -1,42 +1,40 @@
 
-export type OffersProps = {
+type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+type City = {
+  name: string;
+  location: Location;
+}
+
+type Host = {
+  name: string;
+  avatarUrl: string;
+  isPro: boolean;
+}
+
+export type Offer = {
   id: string;
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
-  rating: number;
+  rating: number | undefined;
   description: string;
-    bedrooms: number;
-    goods: [
-      string
-    ];
-    host: {
-      name: string;
-      avatarUrl: string;
-      isPro: false;
-    };
-    images: [
-      string
-    ];
-    maxAdults: number;
+  bedrooms: number;
+  goods: string[];
+  host: Host;
+  images: string[];
+  maxAdults: number;
 }
 
-const offers: Array<OffersProps> = [
+const offers: Array<Offer> = [
   {
     id: '27cd0cb9-1380-4b6c-aabe-580dd05484b3',
     title: 'Wood and stone place',
@@ -75,10 +73,19 @@ const offers: Array<OffersProps> = [
   }
 ];
 
+export const enum TypeCard {
+  Offer = 'OFFER',
+  Favorites = 'FAVORITES',
+  Place = 'PLACE',
+}
+
 export const enum AuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NOAUTH',
   Unknown = 'UKNOWN',
 }
 
-export {offers};
+const offerInside: string[] = [ 'Wi-Fi', 'Washing machine', 'Towels', 'Heating', 'Coffee machine', 'Baby seat', 'Kitchen', 'Dishwasher', 'Cabel TV', 'Fridge' ];
+const offerImage: string[] = ['img/room.jpg', 'img/apartment-01.jpg', 'img/apartment-02.jpg', 'img/apartment-03.jpg', 'img/studio-01.jpg', 'img/apartment-01.jpg'];
+
+export {offers, offerImage, offerInside};

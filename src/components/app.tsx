@@ -3,7 +3,7 @@ import { Login } from './login.tsx';
 import { Layout } from './layout.tsx';
 import { Page404 } from '../pages/page404.tsx';
 import { Favorites } from './favorites.tsx';
-import { Offer } from './offer/offer.tsx';
+import { OfferCard } from './offer/offer-card.tsx';
 import { offers, AuthorizationStatus } from '../const.tsx';
 import { PrivateRoute } from './private-route.tsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -21,7 +21,7 @@ function App() {
           }
           />
           <Route path='offer/'>
-            <Route path=":id" element={<Offer offers={offers} />} />
+            <Route path=":id" element={<OfferCard offers={offers} />} />
           </Route>
         </Route>
         <Route path='login/' element={<Login />}></Route>
