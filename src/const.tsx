@@ -1,4 +1,31 @@
 
+export const cityMain = [
+  {
+    city: 'Paris',
+    isCheck: false,
+  },
+  {
+    city: 'Cologne',
+    isCheck: false,
+  },
+  {
+    city: 'Brussels',
+    isCheck: false,
+  },
+  {
+    city: 'Amsterdam',
+    isCheck: true,
+  },
+  {
+    city: 'Hamburg',
+    isCheck: false,
+  },
+  {
+    city: 'Dusseldorf',
+    isCheck: false,
+  },
+];
+
 type Location = {
   latitude: number;
   longitude: number;
@@ -25,7 +52,7 @@ export type Offer = {
   location: Location;
   isFavorite: boolean;
   isPremium: boolean;
-  rating: number | undefined;
+  rating: number;
   description: string;
   bedrooms: number;
   goods: string[];

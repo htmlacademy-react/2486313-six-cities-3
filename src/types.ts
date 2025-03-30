@@ -4,7 +4,7 @@ export type CardProps = {
   isPremium: boolean;
   image: string;
   price: number;
-  width: string;
+  rating: number;
   text: string;
   type: string;
 };

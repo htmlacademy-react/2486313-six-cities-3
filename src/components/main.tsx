@@ -1,6 +1,7 @@
 import { City } from './city.tsx';
 import { Card } from './card.tsx';
-import { TypeCard } from '../const.tsx';
+import { placeCards } from '../mocks/place-card.ts';
+import { cityMain } from '../const.tsx';
 
 
 function PageMain() {
@@ -10,12 +11,9 @@ function PageMain() {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            <City city="Paris" isCheck={false} />
-            <City city="Cologne" isCheck={false}/>
-            <City city="Brussels" isCheck={false}/>
-            <City city="Amsterdam" isCheck/>
-            <City city="Hamburg" isCheck={false}/>
-            <City city="Dusseldorf" isCheck={false}/>
+            { cityMain.map((town) =>
+              <City key={''} city={town.city} isCheck={town.isCheck} />
+            )}
           </ul>
         </section>
       </div>
@@ -33,18 +31,16 @@ function PageMain() {
                 </svg>
               </span>
               <ul className="places__options places__options--custom places__options--opened">
-                <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-                <li className="places__option" tabIndex={0}>Price: low to high</li>
+                <li className="places__option" tabIndex={0}>Popular</li>
+                <li className="places__option places__option--active" tabIndex={0}>Price: low to high</li>
                 <li className="places__option" tabIndex={0}>Price: high to low</li>
                 <li className="places__option" tabIndex={0}>Top rated first</li>
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              <Card typeCard={TypeCard.Place} isPremium image="img/apartment-01.jpg" price={120} width="80%" text='Beautiful &amp; luxurious apartment at great location' type='Apartment'/>
-              <Card typeCard={TypeCard.Place} isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
-              <Card typeCard={TypeCard.Place} isPremium={false} image="img/apartment-02.jpg" price={132} width="80%" text='Canal View Prinsengracht' type='Apartment'/>
-              <Card typeCard={TypeCard.Place} isPremium image="img/apartment-03.jpg" price={180} width="100%" text='Nice, cozy, warm big bed apartment' type='Apartment'/>
-              <Card typeCard={TypeCard.Place} isPremium={false} image="img/room.jpg" price={80} width="80%" text='Wood and stone place' type='Room'/>
+              { placeCards.map((place) =>
+                <Card key={''} typeCard={place.typeCard} isPremium={place.isPremium} image={place.image} price={place.price} rating={place.rating * 20} text={place.text} type={place.type}/>
+              )}
             </div>
           </section>
           <div className="cities__right-section">

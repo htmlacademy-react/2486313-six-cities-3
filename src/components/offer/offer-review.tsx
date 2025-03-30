@@ -2,13 +2,16 @@
 type OfferReviewProps = {
   image: string;
   userName: string;
-  width: string;
+  rating: number;
   userText: string;
   date: string;
   monthYear: string;
 }
 
-function OfferReview({image, userName, width, userText, date, monthYear} : OfferReviewProps) {
+function OfferReview({image, userName, rating, userText, date, monthYear} : OfferReviewProps) {
+
+  const newRating = rating * 20;
+
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
@@ -22,7 +25,7 @@ function OfferReview({image, userName, width, userText, date, monthYear} : Offer
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: width}}></span>
+            <span style={{width: newRating}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

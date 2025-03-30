@@ -1,7 +1,7 @@
 import { CardProps } from '../types.ts';
 
 
-function Card({typeCard, isPremium, image, price, width, text, type}: CardProps) {
+function Card({typeCard, isPremium, image, price, rating, text, type}: CardProps) {
 
   const cardClass = {
     'FAVORITES': 'favorites__card',
@@ -41,7 +41,7 @@ function Card({typeCard, isPremium, image, price, width, text, type}: CardProps)
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: width }}></span>
+            <span style={{ width: rating }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
