@@ -5,12 +5,13 @@ import { OfferReview } from './offer-review.tsx';
 import { OfferHost } from './offer-host.tsx';
 import { OfferInside } from './offer-inside.tsx';
 import { OfferFeature } from './offer-feature.tsx';
-import { offerImage, offerInside, Offer } from '../../const.tsx';
+import { OfferType } from '../../types.ts';
+import { offerImage, offerInside } from '../../const.tsx';
 import { useParams } from 'react-router-dom';
 import { offerCards } from '../../mocks/offer-cards.ts';
 
 type OfferProps = {
-  offers: Offer[];
+  offers: OfferType[];
 }
 
 function OfferCard({offers} : OfferProps) {
