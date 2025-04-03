@@ -1,10 +1,4 @@
-
-type OfferHostProps = {
-  image: string | undefined;
-  name: string | undefined;
-  status: boolean | undefined;
-  description: string | undefined;
-}
+import { OfferHostProps } from '../../types.ts';
 
 function OfferHost({image, name, status, description} : OfferHostProps) {
   return (

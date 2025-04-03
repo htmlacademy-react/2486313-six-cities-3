@@ -1,8 +1,4 @@
-type OfferFeatureProps = {
-  placeName: string | undefined;
-  bedrooms: number | undefined;
-  maxAdults: number | undefined;
-}
+import { OfferFeatureProps } from '../../types.ts';
 
 function OfferFeature({placeName, bedrooms, maxAdults} : OfferFeatureProps) {
   return (

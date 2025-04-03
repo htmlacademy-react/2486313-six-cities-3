@@ -1,5 +1,8 @@
 
-type CityProps = ({city: string; isCheck: boolean});
+type CityProps = {
+  city: string;
+  isCheck: boolean;
+};
 
 function City({city, isCheck} : CityProps) {
   return (

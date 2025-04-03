@@ -1,7 +1,8 @@
 import { Card } from './card.tsx';
-import { favoritesCards } from '../mocks/favorites-cards.ts';
+import { TypeCard } from '../const.tsx';
+import { OfferProps } from '../types.ts';
 
-function Favorites() {
+function Favorites({offers} : OfferProps) {
   return(
     <>
       <main className="page__main page__main--favorites">
@@ -18,8 +19,8 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  { favoritesCards.slice(0, 2).map((card) =>
-                    <Card key={''} typeCard={card.typeCard} isPremium={card.isPremium} image={card.image} price={card.price} rating={card.rating * 20} text={card.text} type={card.type}/>
+                  { offers.slice(0, 2).map(({id, type, isPremium, images, price, rating, title}) =>
+                    <Card key={''} id={id} typeCard={TypeCard.Favorites} isPremium={isPremium} images={images} price={price} rating={rating} title={title} type={type}/>
                   )}
                 </div>
               </li>
@@ -33,8 +34,8 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  { favoritesCards.slice(2).map((card) =>
-                    <Card key={''} typeCard={card.typeCard} isPremium={card.isPremium} image={card.image} price={card.price} rating={card.rating * 20} text={card.text} type={card.type}/>
+                  { offers.slice(2).map(({id, type, isPremium, images, price, rating, title}) =>
+                    <Card key={''} id={id} typeCard={TypeCard.Favorites} isPremium={isPremium} images={images} price={price} rating={rating} title={title} type={type}/>
                   )}
                 </div>
               </li>

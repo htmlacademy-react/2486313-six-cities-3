@@ -1,5 +1,5 @@
 
-type OfferReviewProps = {
+export type Info = {
   image: string;
   userName: string;
   rating: number;
@@ -8,7 +8,12 @@ type OfferReviewProps = {
   monthYear: string;
 }
 
-function OfferReview({image, userName, rating, userText, date, monthYear} : OfferReviewProps) {
+type OfferReviewProps = {
+  info: Info;
+}
+
+export function OfferReview({info} : OfferReviewProps) {
+  const {image, userName, userText, rating, date, monthYear} = info;
 
   const newRating = rating * 20;
 
@@ -38,4 +43,3 @@ function OfferReview({image, userName, rating, userText, date, monthYear} : Offe
   );
 }
 
-export {OfferReview};
