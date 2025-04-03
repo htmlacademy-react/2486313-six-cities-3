@@ -1,11 +1,12 @@
 
 export type CardProps = {
+  id: string;
   typeCard: string;
   isPremium: boolean;
-  image: string;
+  images: string[];
   price: number;
   rating: number;
-  text: string;
+  title: string;
   type: string;
 };
 
@@ -41,5 +42,22 @@ export type OfferType = {
   goods: string[];
   host: Host;
   images: string[];
+  maxAdults: number;
+}
+
+export type OfferProps = {
+  offers: OfferType[];
+}
+
+export type OfferHostProps = {
+  image: string;
+  name: string;
+  status: boolean;
+  description: string;
+}
+
+export type OfferFeatureProps = {
+  placeName: string;
+  bedrooms: number;
   maxAdults: number;
 }
