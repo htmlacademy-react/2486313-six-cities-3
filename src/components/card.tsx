@@ -1,19 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { CardProps } from '../types.ts';
+import { ratingNumber } from '../const.tsx';
 
 
-function Card({typeCard, id, isPremium, images, price, rating, title, type}: CardProps) {
-
-  const [state, setState] = useState({
-
-  });
-
-  function handleFocus() {
-    setState({...state,
-
-    });
-  }
+function Card({typeCard, id, isPremium, previewImage, price, rating, title, type}: CardProps) {
 
   const cardClass = {
     'FAVORITES': 'favorites__card',
@@ -31,11 +21,16 @@ function Card({typeCard, id, isPremium, images, price, rating, title, type}: Car
   const imageHeight = typeCard === 'FAVORITES' ? 110 : 200;
 
   return (
-    <article className={`${cardClass} place-card`} style={state} onFocus={handleFocus}>
+    <article className={`${cardClass} place-card`}>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className={`${imageClass} place-card__image-wrapper`}>
-        <Link to={`../offer/${id}`}>
-          <img className="place-card__image" src={images[0]} width={imageWidth} height={imageHeight} alt="Place image" />
+        <Link to={`../../offer/${id}`}>
+          <img
+            className="place-card__image"
+            src={previewImage}
+            width={imageWidth}
+            height={imageHeight} alt="Place image"
+          />
         </Link>
       </div>
       <div className="place-card__info">
@@ -53,7 +48,7 @@ function Card({typeCard, id, isPremium, images, price, rating, title, type}: Car
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: rating * 20 }}></span>
+            <span style={{ width: rating * ratingNumber }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

@@ -4,7 +4,7 @@ export const offers: Array<OfferType> = [
   {
     id: '27cd0cb9-1380-4b6c-aabe-580dd05484b3',
     title: 'Wood and stone place',
-    type: 'hotel',
+    type: 'Hotel',
     price: 115,
     city: {
       name: 'Paris',
@@ -36,11 +36,12 @@ export const offers: Array<OfferType> = [
       'img/apartment-03.jpg',
     ],
     maxAdults: 4,
+    previewImage: 'img/apartment-small-03.jpg'
   },
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f30',
     title: 'Luxurious studio',
-    type: 'apartment',
+    type: 'Apartment',
     price: 120,
     city: {
       name: 'Amsterdam',
@@ -72,11 +73,12 @@ export const offers: Array<OfferType> = [
       'img/apartment-02.jpg',
     ],
     maxAdults: 4,
+    previewImage: 'img/apartment-02.jpg'
   },
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Luxurious studio',
-    type: 'apartment',
+    type: 'Apartment',
     price: 12,
     city: {
       name: 'Amsterdam',
@@ -91,7 +93,7 @@ export const offers: Array<OfferType> = [
       longitude: 4.673877537499948,
       zoom: 8
     },
-    isFavorite: false,
+    isFavorite: true,
     isPremium: false,
     rating: 4,
     description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
@@ -108,6 +110,7 @@ export const offers: Array<OfferType> = [
       'img/apartment-01.jpg',
     ],
     maxAdults: 4,
+    previewImage: 'img/apartment-01.jpg'
   },
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f01',
@@ -144,5 +147,6 @@ export const offers: Array<OfferType> = [
       'img/room.jpg',
     ],
     maxAdults: 4,
+    previewImage: 'img/room.jpg'
   },
 ];

@@ -1,16 +1,4 @@
-
-export type Info = {
-  image: string;
-  userName: string;
-  rating: number;
-  userText: string;
-  date: string;
-  monthYear: string;
-}
-
-type OfferReviewProps = {
-  info: Info;
-}
+import { OfferReviewProps } from '../../types.ts';
 
 export function OfferReview({info} : OfferReviewProps) {
   const {image, userName, userText, rating, date, monthYear} = info;

@@ -3,11 +3,11 @@ export type CardProps = {
   id: string;
   typeCard: string;
   isPremium: boolean;
-  images: string[];
   price: number;
   rating: number;
   title: string;
   type: string;
+  previewImage: string;
 };
 
 type Location = {
@@ -43,6 +43,7 @@ export type OfferType = {
   host: Host;
   images: string[];
   maxAdults: number;
+  previewImage: string;
 }
 
 export type OfferProps = {
@@ -60,4 +61,18 @@ export type OfferFeatureProps = {
   placeName: string;
   bedrooms: number;
   maxAdults: number;
+}
+
+
+export type ReviewData = {
+  image: string;
+  userName: string;
+  rating: number;
+  userText: string;
+  date: string;
+  monthYear: string;
+}
+
+export type OfferReviewProps = {
+  info: ReviewData;
 }

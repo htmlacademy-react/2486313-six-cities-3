@@ -22,7 +22,7 @@ function OfferCard({offers} : OfferProps) {
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offerImage.map((item) =>
-                <OfferImage key={''} image={item} />
+                <OfferImage key={Math.random()} image={item} />
               )}
             </div>
           </div>
@@ -74,8 +74,8 @@ function OfferCard({offers} : OfferProps) {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              { offers.slice(0,3).map(({id, type, isPremium, images, price, rating, title}) =>
-                <Card key={''} id={id} typeCard={TypeCard.Offer} isPremium={isPremium} images={images} price={price} rating={rating} title={title} type={type}/>)}
+              { offers.slice(0,3).map(({id, type, isPremium, previewImage, price, rating, title}) =>
+                <Card key={offer.id} id={id} typeCard={TypeCard.Offer} isPremium={isPremium} previewImage={previewImage} price={price} rating={rating} title={title} type={type}/>)}
             </div>
           </section>
         </div>
