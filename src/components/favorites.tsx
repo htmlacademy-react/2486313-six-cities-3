@@ -12,7 +12,7 @@ function Favorites({offers} : OfferProps) {
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
               {offers.map((offer) => {
-                const {id, type, isPremium, previewImage, price, rating, title, city, isFavorite} = offer;
+                const {city, isFavorite} = offer;
                 return cityMain.map((location) => {
                   if (location.city === city.name && isFavorite === true) {
                     return (
@@ -26,15 +26,8 @@ function Favorites({offers} : OfferProps) {
                         </div>
                         <div className="favorites__places">
                           <Card
-                            key={offer.id}
-                            id={id}
+                            offer={offer}
                             typeCard={TypeCard.Favorites}
-                            isPremium={isPremium}
-                            previewImage={previewImage}
-                            price={price}
-                            rating={rating}
-                            title={title}
-                            type={type}
                           />
                         </div>
                       </li>

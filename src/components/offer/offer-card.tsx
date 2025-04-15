@@ -14,7 +14,7 @@ function OfferCard({offers} : OfferProps) {
   const params = useParams();
   const offer = offers.find((offerProps) => offerProps.id === params.id);
   if (offer !== undefined) {
-    const offerRating = offer.rating * 20;
+    const rating = offer.rating * 20;
 
     return(
       <main className="page__main page__main--offer">
@@ -22,7 +22,7 @@ function OfferCard({offers} : OfferProps) {
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offerImage.map((item) =>
-                <OfferImage key={Math.random()} image={item} />
+                <OfferImage key={item} image={item} />
               )}
             </div>
           </div>
@@ -42,7 +42,7 @@ function OfferCard({offers} : OfferProps) {
               </div>
               <div className="offer__rating rating">
                 <div className="offer__stars rating__stars">
-                  <span style={{width: offerRating}}>
+                  <span style={{width: rating}}>
                   </span>
                   <span className="visually-hidden">Rating</span>
                 </div>
@@ -74,8 +74,8 @@ function OfferCard({offers} : OfferProps) {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              { offers.slice(0,3).map(({id, type, isPremium, previewImage, price, rating, title}) =>
-                <Card key={offer.id} id={id} typeCard={TypeCard.Offer} isPremium={isPremium} previewImage={previewImage} price={price} rating={rating} title={title} type={type}/>)}
+              { offers.slice(0,3).map((offerPlace) =>
+                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer}/>)}
             </div>
           </section>
         </div>

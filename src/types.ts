@@ -1,13 +1,15 @@
 
 export type CardProps = {
-  id: string;
   typeCard: string;
-  isPremium: boolean;
-  price: number;
-  rating: number;
-  title: string;
-  type: string;
-  previewImage: string;
+  offer: {
+    id: string;
+    isPremium: boolean;
+    price: number;
+    rating: number;
+    title: string;
+    type: string;
+    previewImage: string;
+  };
 };
 
 type Location = {

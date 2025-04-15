@@ -5,7 +5,7 @@ import { ReviewData } from '../../types.ts';
 
 export function Reviews() {
 
-  const [state, setState] = useState({
+  const [review, setReview] = useState({
     image: 'img/avatar-max.jpg',
     userName: 'Max',
     rating: 0,
@@ -27,7 +27,7 @@ export function Reviews() {
     evt.preventDefault();
 
     setComments([...comments,{
-      ...state,
+      ...review,
       date: new Date().toLocaleDateString()
     }]);
 
@@ -47,8 +47,8 @@ export function Reviews() {
           {[5, 4, 3, 2, 1].map((rating) => (
             <>
               <input
-                checked={state.rating === rating}
-                onChange={() => setState({...state, rating})}
+                checked={review.rating === rating}
+                onChange={() => setReview({...review, rating})}
                 className="form__rating-input visually-hidden"
                 name="rating"
                 value={rating}
@@ -64,7 +64,7 @@ export function Reviews() {
           ))}
         </div>
         <textarea
-          onChange={(evt) => setState({...state, userText: evt.target.value})}
+          onChange={(evt) => setReview({...review, userText: evt.target.value})}
           className="reviews__textarea form__textarea"
           id="review"
           name="review"

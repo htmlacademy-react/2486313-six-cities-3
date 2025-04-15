@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { CardProps } from '../types.ts';
-import { ratingNumber } from '../const.tsx';
+import { RATING_NUMBER } from '../const.tsx';
 
 
-function Card({typeCard, id, isPremium, previewImage, price, rating, title, type}: CardProps) {
+function Card({typeCard, offer}: CardProps) {
+
+  const {id, isPremium, previewImage, price, rating, title, type} = offer;
 
   const cardClass = {
     'FAVORITES': 'favorites__card',
@@ -24,7 +26,7 @@ function Card({typeCard, id, isPremium, previewImage, price, rating, title, type
     <article className={`${cardClass} place-card`}>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className={`${imageClass} place-card__image-wrapper`}>
-        <Link to={`../../offer/${id}`}>
+        <Link to={`/offer/${id}`}>
           <img
             className="place-card__image"
             src={previewImage}
@@ -48,7 +50,7 @@ function Card({typeCard, id, isPremium, previewImage, price, rating, title, type
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: rating * ratingNumber }}></span>
+            <span style={{ width: rating * RATING_NUMBER }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

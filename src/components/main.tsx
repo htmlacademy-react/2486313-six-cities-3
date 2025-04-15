@@ -12,7 +12,7 @@ function PageMain({offers} : OfferProps) {
         <section className="locations container">
           <ul className="locations__list tabs__list">
             { cityMain.map((town) =>
-              <City key={'1'} city={town.city} isCheck={town.isCheck} />
+              <City key={town.id} city={town.city} isCheck={town.isCheck} />
             )}
           </ul>
         </section>
