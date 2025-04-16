@@ -1,10 +1,10 @@
 import { City } from './city.tsx';
-import { Card } from './card.tsx';
-import { placeCards } from '../mocks/place-card.ts';
 import { cityMain } from '../const.tsx';
+import { OfferProps } from '../types.ts';
+import { ListOffers } from './offer/list-offers.tsx';
 
 
-function PageMain() {
+function PageMain({offers} : OfferProps) {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -12,7 +12,7 @@ function PageMain() {
         <section className="locations container">
           <ul className="locations__list tabs__list">
             { cityMain.map((town) =>
-              <City key={''} city={town.city} isCheck={town.isCheck} />
+              <City key={town.id} city={town.city} isCheck={town.isCheck} />
             )}
           </ul>
         </section>
@@ -38,9 +38,7 @@ function PageMain() {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              { placeCards.map((place) =>
-                <Card key={''} typeCard={place.typeCard} isPremium={place.isPremium} image={place.image} price={place.price} rating={place.rating * 20} text={place.text} type={place.type}/>
-              )}
+              <ListOffers offers={offers} />
             </div>
           </section>
           <div className="cities__right-section">

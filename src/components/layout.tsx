@@ -22,9 +22,9 @@ function Layout(): JSX.Element {
                   </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="#">
+                  <Link className="header__nav-link" to="#">
                     <span className="header__signout">Sign out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

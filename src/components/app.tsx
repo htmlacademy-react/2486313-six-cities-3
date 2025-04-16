@@ -4,19 +4,21 @@ import { Layout } from './layout.tsx';
 import { Page404 } from '../pages/page404.tsx';
 import { Favorites } from './favorites.tsx';
 import { OfferCard } from './offer/offer-card.tsx';
-import { offers, AuthorizationStatus } from '../const.tsx';
+import { AuthorizationStatus } from '../const.tsx';
 import { PrivateRoute } from './private-route.tsx';
+import { OfferProps } from '../types.ts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+
+function App({offers} : OfferProps) {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<PageMain />}></Route>
+          <Route index element={<PageMain offers={offers} />}></Route>
           <Route path='favorites/' element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <Favorites />
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <Favorites offers={offers}/>
             </PrivateRoute>
           }
           />

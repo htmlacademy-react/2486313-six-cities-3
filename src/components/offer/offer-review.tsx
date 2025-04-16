@@ -1,14 +1,7 @@
+import { OfferReviewProps } from '../../types.ts';
 
-type OfferReviewProps = {
-  image: string;
-  userName: string;
-  rating: number;
-  userText: string;
-  date: string;
-  monthYear: string;
-}
-
-function OfferReview({image, userName, rating, userText, date, monthYear} : OfferReviewProps) {
+export function OfferReview({info} : OfferReviewProps) {
+  const {image, userName, userText, rating, date, monthYear} = info;
 
   const newRating = rating * 20;
 
@@ -38,4 +31,3 @@ function OfferReview({image, userName, rating, userText, date, monthYear} : Offe
   );
 }
 
-export {OfferReview};

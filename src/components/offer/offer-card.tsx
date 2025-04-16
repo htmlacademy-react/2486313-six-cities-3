@@ -1,18 +1,14 @@
 import { OfferImage } from './offer-image.tsx';
 import { Card } from '../card.tsx';
-import { ReviewsForm } from './rewiews-form.tsx';
-import { OfferReview } from './offer-review.tsx';
+import { Reviews } from './rewiews.tsx';
 import { OfferHost } from './offer-host.tsx';
 import { OfferInside } from './offer-inside.tsx';
 import { OfferFeature } from './offer-feature.tsx';
-import { OfferType } from '../../types.ts';
+import { TypeCard } from '../../const.tsx';
 import { offerImage, offerInside } from '../../const.tsx';
 import { useParams } from 'react-router-dom';
-import { offerCards } from '../../mocks/offer-cards.ts';
+import { OfferProps } from '../../types.ts';
 
-type OfferProps = {
-  offers: OfferType[];
-}
 
 function OfferCard({offers} : OfferProps) {
   const params = useParams();
@@ -26,7 +22,7 @@ function OfferCard({offers} : OfferProps) {
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offerImage.map((item) =>
-                <OfferImage key={''} image={item} />
+                <OfferImage key={item} image={item} />
               )}
             </div>
           </div>
@@ -69,13 +65,7 @@ function OfferCard({offers} : OfferProps) {
                 <h2 className="offer__host-title">Meet the host</h2>
                 <OfferHost image={ offer?.host.avatarUrl } name={ offer?.host.name } status={ offer?.host.isPro } description={ offer?.description }/>
               </div>
-              <section className="offer__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-                <ul className="reviews__list">
-                  <OfferReview image='img/avatar-max.jpg' userName='Max' rating={4} userText='A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.' date='2019-04-24' monthYear='' />
-                </ul>
-                <ReviewsForm />
-              </section>
+              <Reviews />
             </div>
           </div>
           <section className="offer__map map"></section>
@@ -84,9 +74,8 @@ function OfferCard({offers} : OfferProps) {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              { offerCards.map((offerMock) =>
-                <Card key={''} typeCard={offerMock.typeCard} isPremium={offerMock.isPremium} image={offerMock.image} price={offerMock.price} rating={offerMock.rating * 20} text={offerMock.text} type={offerMock.type}/>
-              )}
+              { offers.slice(0,3).map((offerPlace) =>
+                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer}/>)}
             </div>
           </section>
         </div>

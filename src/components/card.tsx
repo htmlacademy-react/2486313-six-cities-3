@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
 import { CardProps } from '../types.ts';
+import { RATING_NUMBER } from '../const.tsx';
 
 
-function Card({typeCard, isPremium, image, price, rating, text, type}: CardProps) {
+function Card({typeCard, offer}: CardProps) {
+
+  const {id, isPremium, previewImage, price, rating, title, type} = offer;
 
   const cardClass = {
     'FAVORITES': 'favorites__card',
@@ -22,9 +26,14 @@ function Card({typeCard, isPremium, image, price, rating, text, type}: CardProps
     <article className={`${cardClass} place-card`}>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className={`${imageClass} place-card__image-wrapper`}>
-        <a href="#">
-          <img className="place-card__image" src={image} width={imageWidth} height={imageHeight} alt="Place image" />
-        </a>
+        <Link to={`/offer/${id}`}>
+          <img
+            className="place-card__image"
+            src={previewImage}
+            width={imageWidth}
+            height={imageHeight} alt="Place image"
+          />
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -41,12 +50,12 @@ function Card({typeCard, isPremium, image, price, rating, text, type}: CardProps
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: rating }}></span>
+            <span style={{ width: rating * RATING_NUMBER }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{text}</a>
+          <a href="#">{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

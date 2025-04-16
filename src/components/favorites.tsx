@@ -1,7 +1,9 @@
 import { Card } from './card.tsx';
-import { favoritesCards } from '../mocks/favorites-cards.ts';
+import { TypeCard } from '../const.tsx';
+import { OfferProps } from '../types.ts';
+import { cityMain } from '../const.tsx';
 
-function Favorites() {
+function Favorites({offers} : OfferProps) {
   return(
     <>
       <main className="page__main page__main--favorites">
@@ -9,35 +11,30 @@ function Favorites() {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="#">
-                      <span>Amsterdam</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-                  { favoritesCards.slice(0, 2).map((card) =>
-                    <Card key={''} typeCard={card.typeCard} isPremium={card.isPremium} image={card.image} price={card.price} rating={card.rating * 20} text={card.text} type={card.type}/>
-                  )}
-                </div>
-              </li>
-
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="#">
-                      <span>Cologne</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-                  { favoritesCards.slice(2).map((card) =>
-                    <Card key={''} typeCard={card.typeCard} isPremium={card.isPremium} image={card.image} price={card.price} rating={card.rating * 20} text={card.text} type={card.type}/>
-                  )}
-                </div>
-              </li>
+              {offers.map((offer) => {
+                const {city, isFavorite} = offer;
+                return cityMain.map((location) => {
+                  if (location.city === city.name && isFavorite === true) {
+                    return (
+                      <li key={offer.id} className="favorites__locations-items">
+                        <div className="favorites__locations locations locations--current">
+                          <div className="locations__item">
+                            <a className="locations__item-link" href="#">
+                              <span>{location.city}</span>
+                            </a>
+                          </div>
+                        </div>
+                        <div className="favorites__places">
+                          <Card
+                            offer={offer}
+                            typeCard={TypeCard.Favorites}
+                          />
+                        </div>
+                      </li>
+                    );
+                  }
+                });
+              })}
             </ul>
           </section>
         </div>
