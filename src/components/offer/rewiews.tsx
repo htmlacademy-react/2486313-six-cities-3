@@ -6,6 +6,7 @@ import { ReviewData } from '../../types.ts';
 export function Reviews() {
 
   const [review, setReview] = useState({
+    id: 0,
     image: 'img/avatar-max.jpg',
     userName: 'Max',
     rating: 0,
@@ -15,6 +16,7 @@ export function Reviews() {
   });
 
   const [comments, setComments] = useState<ReviewData[]>([{
+    id: 1,
     image: 'img/avatar-max.jpg',
     userName: 'Max',
     rating: 5,
@@ -28,6 +30,7 @@ export function Reviews() {
 
     setComments([...comments,{
       ...review,
+      id: comments.length,
       date: new Date().toLocaleDateString()
     }]);
 
@@ -38,7 +41,7 @@ export function Reviews() {
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{comments.length}</span></h2>
       <ul className="reviews__list">
         {comments.map((comment) =>
-          <OfferReview key={Math.random()} info={comment}/>
+          <OfferReview key={comment.id} info={comment}/>
         )}
       </ul>
       <form onSubmit={handleSubmit} className="reviews__form form" action="#" method="post">

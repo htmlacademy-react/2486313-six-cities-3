@@ -67,6 +67,7 @@ export type OfferFeatureProps = {
 
 
 export type ReviewData = {
+  id: number;
   image: string;
   userName: string;
   rating: number;
