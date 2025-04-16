@@ -16,7 +16,7 @@ export function Reviews() {
   });
 
   const [comments, setComments] = useState<ReviewData[]>([{
-    id: 1,
+    id: 0,
     image: 'img/avatar-max.jpg',
     userName: 'Max',
     rating: 5,
