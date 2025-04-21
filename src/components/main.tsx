@@ -1,7 +1,9 @@
 import { City } from './city.tsx';
-import { cityMain } from '../const.tsx';
+import { points } from '../const/const.ts';
+import { CITY } from '../const/city.ts';
 import { OfferProps } from '../types.ts';
 import { ListOffers } from './offer/list-offers.tsx';
+import Map from './map.tsx';
 
 
 function PageMain({offers} : OfferProps) {
@@ -11,7 +13,7 @@ function PageMain({offers} : OfferProps) {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            { cityMain.map((town) =>
+            { points.map((town) =>
               <City key={town.id} city={town.city} isCheck={town.isCheck} />
             )}
           </ul>
@@ -42,7 +44,9 @@ function PageMain({offers} : OfferProps) {
             </div>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <section className="cities__map map">
+              <Map city={CITY} points={offers} selectedPoint={undefined}/>
+            </section>
           </div>
         </div>
       </div>

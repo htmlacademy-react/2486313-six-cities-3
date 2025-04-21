@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 
 type CityProps = {
   city: string;
@@ -7,7 +8,7 @@ type CityProps = {
 function City({city, isCheck} : CityProps) {
   return (
     <li className="locations__item">
-      <a className={`locations__item-link tabs__item ${isCheck ? 'tabs__item--active' : ''}`} href="#">
+      <a className={classNames('locations__item-link tabs__item', {'tabs__item--active' : isCheck })} href="#">
         <span>{city}</span>
       </a>
     </li>

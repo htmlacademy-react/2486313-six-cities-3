@@ -12,13 +12,13 @@ export type CardProps = {
   };
 };
 
-type Location = {
+export type Location = {
   latitude: number;
   longitude: number;
   zoom: number;
 }
 
-type City = {
+export type Point = {
   name: string;
   location: Location;
 }
@@ -34,7 +34,7 @@ export type OfferType = {
   title: string;
   type: string;
   price: number;
-  city: City;
+  city: Point;
   location: Location;
   isFavorite: boolean;
   isPremium: boolean;
