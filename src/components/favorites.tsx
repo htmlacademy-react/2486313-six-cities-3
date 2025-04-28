@@ -1,6 +1,6 @@
 import { Card } from './card.tsx';
 import { OfferProps } from '../types.ts';
-import { TypeCard, points } from '../const/const.ts';
+import { TypeCard, cities } from '../const/const.ts';
 
 function Favorites({offers} : OfferProps) {
   return(
@@ -12,7 +12,7 @@ function Favorites({offers} : OfferProps) {
             <ul className="favorites__list">
               {offers.map((offer) => {
                 const {city, isFavorite} = offer;
-                return points.map((location) => {
+                return cities.map((location) => {
                   if (location.city === city.name && isFavorite === true) {
                     return (
                       <li key={offer.id} className="favorites__locations-items">

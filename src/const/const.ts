@@ -1,35 +1,23 @@
 export const RATING_NUMBER = 20;
 
-export const points = [
+export const cities = [
   {
-    id: 1,
     city: 'Paris',
-    isCheck: false,
   },
   {
-    id: 2,
     city: 'Cologne',
-    isCheck: false,
   },
   {
-    id: 3,
     city: 'Brussels',
-    isCheck: false,
   },
   {
-    id: 4,
     city: 'Amsterdam',
-    isCheck: true,
   },
   {
-    id: 5,
     city: 'Hamburg',
-    isCheck: false,
   },
   {
-    id: 6,
     city: 'Dusseldorf',
-    isCheck: false,
   },
 ];
 
@@ -52,3 +40,7 @@ export const offerImage: string[] = ['img/room.jpg', 'img/apartment-01.jpg', 'im
 export const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
 export const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
+export const ICON_WIDTH = 40;
+export const ICON_HEIGHT = 40;
+export const ANCHOR_X = 20;
+export const ANCHOR_Y = 40;

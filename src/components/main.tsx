@@ -1,20 +1,30 @@
 import { City } from './city.tsx';
-import { points } from '../const/const.ts';
+import { cities } from '../const/const.ts';
 import { CITY } from '../const/city.ts';
 import { OfferProps } from '../types.ts';
 import { ListOffers } from './offer/list-offers.tsx';
 import Map from './map.tsx';
+import { useState } from 'react';
 
 
 function PageMain({offers} : OfferProps) {
+  const [currentCity, setCurrentCity] = useState('Amsterdam');
+  const [id, setId] = useState(1);
+
+  function handleClickOnCity (city : string) {
+    setCurrentCity(city);
+  }
+
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            { points.map((town) =>
-              <City key={town.id} city={town.city} isCheck={town.isCheck} />
+            { cities.map((town) =>
+              town.city === currentCity
+                ? <City key={id} city={town.city} isCheck handleClickOnCity={handleClickOnCity} />
+                : <City key={id} city={town.city} isCheck={false} handleClickOnCity={handleClickOnCity} />
             )}
           </ul>
         </section>
