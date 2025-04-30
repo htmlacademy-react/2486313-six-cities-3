@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CardProps } from '../types.ts';
-import { RATING_NUMBER } from '../const.tsx';
+import { RATING_NUMBER } from '../const/const.ts';
 
 
 function Card({typeCard, offer}: CardProps) {

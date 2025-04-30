@@ -4,8 +4,7 @@ import { Reviews } from './rewiews.tsx';
 import { OfferHost } from './offer-host.tsx';
 import { OfferInside } from './offer-inside.tsx';
 import { OfferFeature } from './offer-feature.tsx';
-import { TypeCard } from '../../const.tsx';
-import { offerImage, offerInside } from '../../const.tsx';
+import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
 import { OfferProps } from '../../types.ts';
 

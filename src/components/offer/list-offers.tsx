@@ -1,6 +1,6 @@
 import { OfferProps } from '../../types.ts';
 import { Card } from '../card.tsx';
-import { TypeCard } from '../../const.tsx';
+import { TypeCard } from '../../const/const.ts';
 
 
 function ListOffers({offers} : OfferProps) {

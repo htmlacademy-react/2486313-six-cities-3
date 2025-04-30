@@ -4,7 +4,7 @@ import { Layout } from './layout.tsx';
 import { Page404 } from '../pages/page404.tsx';
 import { Favorites } from './favorites.tsx';
 import { OfferCard } from './offer/offer-card.tsx';
-import { AuthorizationStatus } from '../const.tsx';
+import { AuthorizationStatus } from '../const/const.ts';
 import { PrivateRoute } from './private-route.tsx';
 import { OfferProps } from '../types.ts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
