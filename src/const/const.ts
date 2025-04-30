@@ -40,7 +40,12 @@ export const offerImage: string[] = ['img/room.jpg', 'img/apartment-01.jpg', 'im
 export const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
 export const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
-export const ICON_WIDTH = 40;
-export const ICON_HEIGHT = 40;
-export const ANCHOR_X = 20;
-export const ANCHOR_Y = 40;
+export const IconSize = {
+  WIDTH: 40,
+  HEIGHT: 40,
+};
+
+export const AnchorCoords = {
+  X: 20,
+  Y: 40
+};

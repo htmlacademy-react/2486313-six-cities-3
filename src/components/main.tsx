@@ -9,9 +9,9 @@ import { useState } from 'react';
 
 function PageMain({offers} : OfferProps) {
   const [currentCity, setCurrentCity] = useState('Amsterdam');
-  const [id, setId] = useState(1);
+  const [id] = useState(1);
 
-  function handleClickOnCity (city : string) {
+  function handleLocationClick (city : string) {
     setCurrentCity(city);
   }
 
@@ -22,9 +22,7 @@ function PageMain({offers} : OfferProps) {
         <section className="locations container">
           <ul className="locations__list tabs__list">
             { cities.map((town) =>
-              town.city === currentCity
-                ? <City key={id} city={town.city} isCheck handleClickOnCity={handleClickOnCity} />
-                : <City key={id} city={town.city} isCheck={false} handleClickOnCity={handleClickOnCity} />
+              <City key={id} city={town.city} isCheck={ town.city === currentCity} handleLocationClick={handleLocationClick} />
             )}
           </ul>
         </section>

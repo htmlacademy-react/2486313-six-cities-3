@@ -4,7 +4,7 @@ import useMap from '../hooks/use-map.tsx';
 import {Location, OfferType} from '../types.ts';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../const/const.ts';
 import 'leaflet/dist/leaflet.css';
-import { ICON_WIDTH, ICON_HEIGHT, ANCHOR_X, ANCHOR_Y } from '../const/const.ts';
+import { IconSize, AnchorCoords } from '../const/const.ts';
 
 type MapProps = {
   city: Location;
@@ -12,16 +12,19 @@ type MapProps = {
   selectedPoint: OfferType | undefined;
 };
 
+const commonIconSettings = {
+  iconSize: [IconSize.WIDTH, IconSize.HEIGHT] as [number, number],
+  iconAnchor: [AnchorCoords.X, AnchorCoords.Y] as [number, number],
+};
+
 const defaultCustomIcon = leaflet.icon({
+  ...commonIconSettings,
   iconUrl: URL_MARKER_DEFAULT,
-  iconSize: [ICON_WIDTH, ICON_HEIGHT],
-  iconAnchor: [ANCHOR_X, ANCHOR_Y]
 });
 
 const currentCustomIcon = leaflet.icon({
+  ...commonIconSettings,
   iconUrl: URL_MARKER_CURRENT,
-  iconSize: [ICON_WIDTH, ICON_HEIGHT],
-  iconAnchor: [ANCHOR_X, ANCHOR_Y]
 });
 
 function Map({city, points, selectedPoint} : MapProps): JSX.Element {
