@@ -34,6 +34,16 @@ export function Reviews() {
       date: new Date().toLocaleDateString()
     }]);
 
+    setReview({
+      id: comments.length,
+      image: 'img/avatar-max.jpg',
+      userName: 'Max',
+      rating: 0,
+      userText: '',
+      date: new Date().toLocaleDateString(),
+      monthYear: '',
+    });
+
   };
 
   return (
@@ -72,6 +82,7 @@ export function Reviews() {
           id="review"
           name="review"
           placeholder="Tell how was your stay, what you like and what can be improved"
+          value={review.userText}
         >
         </textarea>
         <div className="reviews__button-wrapper">
