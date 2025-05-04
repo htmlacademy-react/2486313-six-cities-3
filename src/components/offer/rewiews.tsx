@@ -19,7 +19,7 @@ export function Reviews() {
     id: 0,
     image: 'img/avatar-max.jpg',
     userName: 'Max',
-    rating: 5,
+    rating: 3,
     userText: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
     date: '2019-04-24',
     monthYear: '',
@@ -57,7 +57,7 @@ export function Reviews() {
       <form onSubmit={handleSubmit} className="reviews__form form" action="#" method="post">
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
-          {[5, 4, 3, 2, 1].map((rating) => (
+          {[1, 2, 3, 4, 5].map((rating) => (
             <>
               <input
                 checked={review.rating === rating}
@@ -68,13 +68,13 @@ export function Reviews() {
                 id={`${rating}-stars`}
                 type="radio"
               />
-              <label htmlFor={`${rating}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+              <label htmlFor={`${rating}-stars`} className="reviews__rating-label form__rating-label" title="cn">
                 <svg className="form__star-image" width="37" height="33">
                   <use xlinkHref="#icon-star"></use>
                 </svg>
               </label>
             </>
-          ))}
+          )).reverse()}
         </div>
         <textarea
           onChange={(evt) => setReview({...review, userText: evt.target.value})}

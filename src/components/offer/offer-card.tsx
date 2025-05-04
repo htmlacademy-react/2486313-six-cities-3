@@ -7,6 +7,7 @@ import { OfferFeature } from './offer-feature.tsx';
 import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
 import { OfferProps } from '../../types.ts';
+import Map from '../map.tsx';
 
 
 function OfferCard({offers} : OfferProps) {
@@ -67,21 +68,23 @@ function OfferCard({offers} : OfferProps) {
               <Reviews />
             </div>
           </div>
-          <section className="offer__map map"></section>
+          <section className="offer__map map">
+            <Map city={offers[1].location} points={offers.slice(0,3)} selectedPoint={undefined}/>
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               { offers.slice(0,3).map((offerPlace) =>
-                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer}/>)}
+                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer}/>
+              )}
             </div>
           </section>
         </div>
       </main>
     );
   }
-
 }
 
 export {OfferCard};
