@@ -7,12 +7,74 @@ import { OfferFeature } from './offer-feature.tsx';
 import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
 import { OfferProps } from '../../types.ts';
+import { useState } from 'react';
+import { ReviewData } from '../../types.ts';
 import Map from '../map.tsx';
 
 
 function OfferCard({offers} : OfferProps) {
   const params = useParams();
   const offer = offers.find((offerProps) => offerProps.id === params.id);
+
+  const [review, setReview] = useState({
+    id: 0,
+    image: 'img/avatar-max.jpg',
+    userName: 'Max',
+    rating: 0,
+    userText: '',
+    date: new Date().toLocaleDateString(),
+    monthYear: new Date().toLocaleDateString('en', {
+      month: 'short',
+      year: 'numeric'
+    })
+  });
+
+  const [comments, setComments] = useState<ReviewData[]>([{
+    id: 0,
+    image: 'img/avatar-max.jpg',
+    userName: 'Max',
+    rating: 3,
+    userText: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+    date: '2019-04-24',
+    monthYear: 'April 2019'
+  }]);
+
+  const handleInputChange = (value : number) => {
+    setReview({...review, rating: value});
+  };
+
+  const handleTextareaChange = (userText : string) => {
+    setReview({...review, userText: userText});
+  };
+
+  const handleFormSubmit = (evt: React.FormEvent) => {
+    evt.preventDefault();
+
+    setReview({
+      id: comments.length,
+      image: 'img/avatar-max.jpg',
+      userName: 'Max',
+      rating: 0,
+      userText: '',
+      date: new Date().toLocaleDateString(),
+      monthYear: new Date().toLocaleDateString('en', {
+        month: 'short',
+        year: 'numeric'
+      })
+    });
+
+    setComments([{
+      ...review,
+      id: comments.length,
+      date: new Date().toLocaleDateString(),
+      monthYear: new Date().toLocaleDateString('en', {
+        month: 'short',
+        year: 'numeric'
+      })
+    },
+    ...comments]);
+  };
+
   if (offer !== undefined) {
     const rating = offer.rating * 20;
 
@@ -22,13 +84,19 @@ function OfferCard({offers} : OfferProps) {
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
               {offerImage.map((item) =>
-                <OfferImage key={item} image={item} />
+                <OfferImage key={offerImage.indexOf(item)} image={item} />
               )}
             </div>
           </div>
           <div className="offer__container container">
             <div className="offer__wrapper">
-              { offer?.isPremium ? <div className="offer__mark"><span>Premium</span></div> : ''}
+              { offer?.isPremium ?
+                <div className="offer__mark">
+                  <span>
+                    Premium
+                  </span>
+                </div>
+                : ''}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">
                   { offer?.title }
@@ -57,7 +125,7 @@ function OfferCard({offers} : OfferProps) {
                 <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
                   {offerInside.map((offerIns) =>
-                    <OfferInside key={''} textContent={offerIns}/>
+                    <OfferInside key={offerInside.indexOf(offerIns)} textContent={offerIns}/>
                   )}
                 </ul>
               </div>
@@ -65,7 +133,13 @@ function OfferCard({offers} : OfferProps) {
                 <h2 className="offer__host-title">Meet the host</h2>
                 <OfferHost image={ offer?.host.avatarUrl } name={ offer?.host.name } status={ offer?.host.isPro } description={ offer?.description }/>
               </div>
-              <Reviews />
+              <Reviews
+                comments={comments}
+                handleFormSubmit={handleFormSubmit}
+                handleInputChange={handleInputChange}
+                handleTextareaChange={handleTextareaChange}
+                review={review}
+              />
             </div>
           </div>
           <section className="offer__map map">

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { CardProps } from '../types.ts';
 import { RATING_NUMBER } from '../const/const.ts';
 import classNames from 'classnames';
+import { TypeCard } from '../const/const.ts';
 
 
 function Card({typeCard, offer}: CardProps) {
@@ -20,8 +21,8 @@ function Card({typeCard, offer}: CardProps) {
     'OFFER': 'near-places__image-wrapper',
   }[typeCard];
 
-  const imageWidth = typeCard === 'FAVORITES' ? 150 : 260;
-  const imageHeight = typeCard === 'FAVORITES' ? 110 : 200;
+  const imageWidth = typeCard === TypeCard.Favorites ? 150 : 260;
+  const imageHeight = typeCard === TypeCard.Favorites ? 110 : 200;
 
   return (
     <article className={`${cardClass} place-card`}>
@@ -44,13 +45,13 @@ function Card({typeCard, offer}: CardProps) {
           </div>
           <button className={classNames(
             'place-card__bookmark-button',
-            {'place-card__bookmark-button--active': typeCard === 'FAVORITES'},
+            {'place-card__bookmark-button--active': typeCard === TypeCard.Favorites},
             'button')} type="button"
           >
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
-            <span className="visually-hidden">{typeCard === 'FAVORITES' ? 'In bookmarks' : 'To bookmarks'}</span>
+            <span className="visually-hidden">{typeCard === TypeCard.Favorites ? 'In bookmarks' : 'To bookmarks'}</span>
           </button>
         </div>
         <div className="place-card__rating rating">
