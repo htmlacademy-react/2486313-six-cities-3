@@ -9,15 +9,15 @@ export const offers: Array<OfferType> = [
     city: {
       name: 'Paris',
       location: {
-        latitude: 52.3909553943508,
-        longitude: 4.85309666406198,
-        zoom: 13
+        latitude: 48.856667,
+        longitude: 2.350833,
+        zoom: 12
       }
     },
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.85309666406198,
-      zoom: 16
+      latitude: 48.856667,
+      longitude: 2.350833,
+      zoom: 12
     },
     isFavorite: false,
     isPremium: true,
