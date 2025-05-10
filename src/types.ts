@@ -1,6 +1,6 @@
-
+import { TypeCard } from './const/const.ts';
 export type CardProps = {
-  typeCard: string;
+  typeCard: TypeCard;
   offer: {
     id: string;
     isPremium: boolean;

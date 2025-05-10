@@ -1,17 +1,22 @@
-import { City } from './city.tsx';
-import { cities } from '../const/const.ts';
-import { CITY } from '../const/city.ts';
-import { OfferProps } from '../types.ts';
-import { ListOffers } from './offer/list-offers.tsx';
+import { Town } from './town.tsx';
+import { OfferProps, City } from '../types.ts';
+import { Card } from './card.tsx';
+import { TypeCard } from '../const/const.ts';
 import Map from './map.tsx';
 import { useState } from 'react';
 
 
 function PageMain({offers} : OfferProps) {
-  const [currentCity, setCurrentCity] = useState('Amsterdam');
-  const [id] = useState(1);
+  const [currentCity, setCurrentCity] = useState({
+    name: 'Amsterdam',
+    location: {
+      latitude: 52.3609553943508,
+      longitude:  4.85309666406198,
+      zoom: 12
+    }
+  });
 
-  function handleLocationClick (city : string) {
+  function handleLocationClick (city: City) {
     setCurrentCity(city);
   }
 
@@ -21,9 +26,20 @@ function PageMain({offers} : OfferProps) {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            { cities.map((town) =>
-              <City key={id} city={town.city} isCheck={ town.city === currentCity} handleLocationClick={handleLocationClick} />
-            )}
+            {
+              offers
+                .filter((offer, index, self) =>
+                  index === self.findIndex((o) => o.city.name === offer.city.name)
+                )
+                .map((offer) => (
+                  <Town
+                    key={offer.city.name}
+                    city={offer.city}
+                    isCheck={offer.city.name === currentCity.name}
+                    handleLocationClick={handleLocationClick}
+                  />
+                ))
+            }
           </ul>
         </section>
       </div>
@@ -48,12 +64,14 @@ function PageMain({offers} : OfferProps) {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              <ListOffers offers={offers} />
+              { offers.map((offer) =>
+                offer.city.name === currentCity.name ? <Card key={offer.id} offer={offer} typeCard={TypeCard.Place}/> : ''
+              )}
             </div>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map city={CITY} points={offers} selectedPoint={undefined}/>
+              <Map city={currentCity.location} points={offers} selectedPoint={undefined}/>
             </section>
           </div>
         </div>

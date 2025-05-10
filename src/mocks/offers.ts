@@ -9,15 +9,15 @@ export const offers: Array<OfferType> = [
     city: {
       name: 'Paris',
       location: {
-        latitude: 52.3909553943508,
-        longitude: 4.85309666406198,
-        zoom: 13
+        latitude: 48.856667,
+        longitude: 2.350833,
+        zoom: 12
       }
     },
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.85309666406198,
-      zoom: 16
+      latitude: 48.856667,
+      longitude: 2.350833,
+      zoom: 12
     },
     isFavorite: false,
     isPremium: true,
@@ -48,13 +48,13 @@ export const offers: Array<OfferType> = [
       location: {
         latitude: 52.3609553943508,
         longitude:  4.85309666406198,
-        zoom: 8
+        zoom: 12
       }
     },
     location: {
       latitude: 52.3609553943508,
       longitude:  4.85309666406198,
-      zoom: 8
+      zoom: 12
     },
     isFavorite: false,
     isPremium: false,
@@ -81,17 +81,17 @@ export const offers: Array<OfferType> = [
     type: 'Apartment',
     price: 12,
     city: {
-      name: 'Amsterdam',
+      name: 'Brussels',
       location: {
-        latitude: 52.3609553943508,
-        longitude: 4.929309666406198,
-        zoom: 8
+        latitude: 50.846667,
+        longitude: 4.352500,
+        zoom: 12
       }
     },
     location: {
-      latitude: 52.3609553943508,
-      longitude: 4.929309666406198,
-      zoom: 8
+      latitude: 50.846667,
+      longitude: 4.352500,
+      zoom: 12
     },
     isFavorite: true,
     isPremium: false,
@@ -118,17 +118,17 @@ export const offers: Array<OfferType> = [
     type: 'room',
     price: 1000,
     city: {
-      name: 'Amsterdam',
+      name: 'Cologne',
       location: {
-        latitude: 52.3809553943508,
-        longitude: 4.939309666406198,
-        zoom: 8
+        latitude: 50.942222,
+        longitude: 6.957777,
+        zoom: 12
       }
     },
     location: {
-      latitude: 52.3809553943508,
-      longitude: 4.939309666406198,
-      zoom: 8
+      latitude: 50.942222,
+      longitude: 6.957777,
+      zoom: 12
     },
     isFavorite: false,
     isPremium: false,
@@ -149,4 +149,41 @@ export const offers: Array<OfferType> = [
     maxAdults: 4,
     previewImage: 'img/room.jpg'
   },
+  {
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f01',
+    title: 'Wood and stone place',
+    type: 'room',
+    price: 1000,
+    city: {
+      name: 'Hamburg',
+      location: {
+        latitude: 53.550278,
+        longitude: 9.993333,
+        zoom: 12
+      }
+    },
+    location: {
+      latitude: 53.550278,
+      longitude: 9.993333,
+      zoom: 12
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'https://url-to-image/image.png',
+      isPro: false,
+    },
+    images: [
+      'img/room.jpg',
+    ],
+    maxAdults: 4,
+    previewImage: 'img/room.jpg'
+  }
 ];

@@ -17,7 +17,7 @@ function App({offers} : OfferProps) {
         <Route path='/' element={<Layout />}>
           <Route index element={<PageMain offers={offers} />}></Route>
           <Route path='favorites/' element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
               <Favorites offers={offers}/>
             </PrivateRoute>
           }

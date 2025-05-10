@@ -49,13 +49,15 @@ function Map({city, points, selectedPoint} : MapProps): JSX.Element {
               : defaultCustomIcon
           )
           .addTo(markerLayer);
+
+        map.setView([city.latitude, city.longitude], city.zoom);
       });
 
       return () => {
         map.removeLayer(markerLayer);
       };
     }
-  }, [map, points, selectedPoint]);
+  }, [city, map, points, selectedPoint]);
 
   return <div style={{height: '100%'}} ref={mapRef} />;
 }

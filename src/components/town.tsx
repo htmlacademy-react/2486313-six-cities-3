@@ -1,21 +1,22 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import { City } from '../types';
 
-type CityProps = {
-  city: string;
+type TownProps = {
+  city: City;
   isCheck: boolean;
-  handleLocationClick: (city: string) => void;
+  handleLocationClick: (city: City) => void;
 };
 
-function City({city, isCheck, handleLocationClick} : CityProps) {
+function Town({city, isCheck, handleLocationClick} : TownProps) {
   return (
     <li className="locations__item">
       <Link to="#" className={classNames('locations__item-link tabs__item', {'tabs__item--active' : isCheck })} onClick={() => handleLocationClick(city)}>
-        <span>{city}</span>
+        <span>{city.name}</span>
       </Link>
     </li>
   );
 }
 
 
-export {City};
+export {Town};
