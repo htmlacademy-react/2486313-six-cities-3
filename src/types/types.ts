@@ -1,4 +1,5 @@
-import { TypeCard } from './const/const.ts';
+import { TypeCard } from '../const/const.ts';
+
 export type CardProps = {
   typeCard: TypeCard;
   offer: {

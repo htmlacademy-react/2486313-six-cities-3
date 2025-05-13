@@ -1,25 +1,6 @@
 export const RATING_NUMBER = 20;
 
-export const cities = [
-  {
-    city: 'Paris',
-  },
-  {
-    city: 'Cologne',
-  },
-  {
-    city: 'Brussels',
-  },
-  {
-    city: 'Amsterdam',
-  },
-  {
-    city: 'Hamburg',
-  },
-  {
-    city: 'Dusseldorf',
-  },
-];
+export const cities = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 
 
 export const enum TypeCard {
@@ -51,3 +32,8 @@ export const AnchorCoords = {
 };
 
 export const MAX_RATING_VALUE = 5;
+
+export const Action = {
+  CITY: 'CITY',
+  LIST_OFFERS: 'LIST_OFFERS'
+};

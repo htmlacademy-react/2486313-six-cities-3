@@ -1,13 +1,13 @@
 import {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import useMap from '../hooks/use-map.tsx';
-import {Location, OfferType} from '../types.ts';
+import {Location, OfferType} from '../types/types.ts';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../const/const.ts';
 import 'leaflet/dist/leaflet.css';
 import { IconSize, AnchorCoords } from '../const/const.ts';
 
 type MapProps = {
-  city: Location;
+  city: Location | undefined;
   points: OfferType[];
   selectedPoint: OfferType | undefined;
 };
@@ -33,7 +33,7 @@ function Map({city, points, selectedPoint} : MapProps): JSX.Element {
   const map = useMap(mapRef, city);
 
   useEffect(() => {
-    if (map) {
+    if (map && city) {
       const markerLayer = leaflet.layerGroup().addTo(map);
       points.forEach((point) => {
 
