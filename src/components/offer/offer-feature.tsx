@@ -1,4 +1,4 @@
-import { OfferFeatureProps } from '../../types.ts';
+import { OfferFeatureProps } from '../../types/types.ts';
 
 function OfferFeature({placeName, bedrooms, maxAdults} : OfferFeatureProps) {
   return (

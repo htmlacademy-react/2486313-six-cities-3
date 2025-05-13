@@ -1,5 +1,5 @@
 import { OfferReview } from './offer-review.tsx';
-import { ReviewData } from '../../types.ts';
+import { ReviewData } from '../../types/types.ts';
 import React from 'react';
 import { MAX_RATING_VALUE } from '../../const/const.ts';
 

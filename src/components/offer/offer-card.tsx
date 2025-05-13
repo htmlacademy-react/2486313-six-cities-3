@@ -6,14 +6,17 @@ import { OfferInside } from './offer-inside.tsx';
 import { OfferFeature } from './offer-feature.tsx';
 import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
-import { OfferProps } from '../../types.ts';
 import { useState } from 'react';
-import { ReviewData } from '../../types.ts';
+import { ReviewData } from '../../types/types.ts';
+import { useAppSelector } from '../../hooks/index.ts';
 import Map from '../map.tsx';
 
 
-function OfferCard({offers} : OfferProps) {
+function OfferCard() {
   const params = useParams();
+
+  const offers = useAppSelector((store) => store.listOffers);
+
   const offer = offers.find((offerProps) => offerProps.id === params.id);
 
   const [review, setReview] = useState({

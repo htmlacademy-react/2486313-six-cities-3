@@ -1,4 +1,4 @@
-import { OfferReviewProps } from '../../types.ts';
+import { OfferReviewProps } from '../../types/types.ts';
 
 export function OfferReview({info} : OfferReviewProps) {
   const {image, userName, userText, rating, date, monthYear} = info;

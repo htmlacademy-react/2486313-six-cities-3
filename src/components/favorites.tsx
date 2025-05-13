@@ -1,8 +1,11 @@
 import { Card } from './card.tsx';
-import { OfferProps } from '../types.ts';
 import { TypeCard, cities } from '../const/const.ts';
+import { useAppSelector } from '../hooks/index.ts';
 
-function Favorites({offers} : OfferProps) {
+function Favorites() {
+
+  const offers = useAppSelector((store) => store.listOffers);
+
   return(
     <>
       <main className="page__main page__main--favorites">
@@ -13,13 +16,13 @@ function Favorites({offers} : OfferProps) {
               {offers.map((offer) => {
                 const {city, isFavorite} = offer;
                 return cities.map((location) => {
-                  if (location.city === city.name && isFavorite === true) {
+                  if (location === city.name && isFavorite === true) {
                     return (
                       <li key={offer.id} className="favorites__locations-items">
                         <div className="favorites__locations locations locations--current">
                           <div className="locations__item">
                             <a className="locations__item-link" href="#">
-                              <span>{location.city}</span>
+                              <span>{location}</span>
                             </a>
                           </div>
                         </div>

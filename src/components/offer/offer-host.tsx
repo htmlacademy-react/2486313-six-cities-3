@@ -1,4 +1,4 @@
-import { OfferHostProps } from '../../types.ts';
+import { OfferHostProps } from '../../types/types.ts';
 
 function OfferHost({image, name, status, description} : OfferHostProps) {
   return (
