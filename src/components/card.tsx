@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CardProps } from '../types.ts';
+import { CardProps } from '../types/types.ts';
 import { RATING_NUMBER } from '../const/const.ts';
 import classNames from 'classnames';
 import { TypeCard } from '../const/const.ts';

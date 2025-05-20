@@ -1,4 +1,5 @@
-import { TypeCard } from './const/const.ts';
+import { TypeCard } from '../const/const.ts';
+
 export type CardProps = {
   typeCard: TypeCard;
   offer: {
@@ -46,6 +47,12 @@ export type OfferType = {
   images: string[];
   maxAdults: number;
   previewImage: string;
+}
+
+
+export type PropsCards = {
+  offers: OfferType[];
+  currentCity: string;
 }
 
 export type OfferProps = {

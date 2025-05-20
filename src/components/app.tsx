@@ -6,25 +6,22 @@ import { Favorites } from './favorites.tsx';
 import { OfferCard } from './offer/offer-card.tsx';
 import { AuthorizationStatus } from '../const/const.ts';
 import { PrivateRoute } from './private-route.tsx';
-import { OfferProps } from '../types.ts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-function App({offers} : OfferProps) {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<PageMain offers={offers} />}></Route>
+          <Route index element={<PageMain />}></Route>
           <Route path='favorites/' element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <Favorites offers={offers}/>
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <Favorites />
             </PrivateRoute>
           }
           />
-          <Route path='offer/'>
-            <Route path=":id" element={<OfferCard offers={offers} />} />
-          </Route>
+          <Route path='offer/:id' element={<OfferCard />} />
         </Route>
         <Route path='login/' element={<Login />}></Route>
         <Route path='*' element={<Page404 />}/>

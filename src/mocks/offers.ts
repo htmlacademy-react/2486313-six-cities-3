@@ -1,4 +1,4 @@
-import { OfferType } from '../types.ts';
+import { OfferType } from '../types/types.ts';
 
 export const offers: Array<OfferType> = [
   {
@@ -19,7 +19,7 @@ export const offers: Array<OfferType> = [
       longitude: 2.350833,
       zoom: 12
     },
-    isFavorite: false,
+    isFavorite: true,
     isPremium: true,
     rating: 3.8,
     description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
