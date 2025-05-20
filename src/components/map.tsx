@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { IconSize, AnchorCoords } from '../const/const.ts';
 
 type MapProps = {
-  city: Location | undefined;
+  city?: Location;
   points: OfferType[];
   selectedPoint: OfferType | undefined;
 };

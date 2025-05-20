@@ -21,9 +21,7 @@ function App() {
             </PrivateRoute>
           }
           />
-          <Route path='offer/'>
-            <Route path=":id" element={<OfferCard />} />
-          </Route>
+          <Route path='offer/:id' element={<OfferCard />} />
         </Route>
         <Route path='login/' element={<Login />}></Route>
         <Route path='*' element={<Page404 />}/>

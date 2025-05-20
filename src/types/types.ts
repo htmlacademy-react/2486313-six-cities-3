@@ -49,6 +49,12 @@ export type OfferType = {
   previewImage: string;
 }
 
+
+export type PropsCards = {
+  offers: OfferType[];
+  currentCity: string;
+}
+
 export type OfferProps = {
   offers: OfferType[];
 }
