@@ -1,7 +1,7 @@
-import { ListCities } from './list-cities.tsx';
-import { MainEmpty } from '../pages/main-empty.tsx';
-import { useAppSelector, useAppDispatch } from '../hooks/index.ts';
-import { cityAction } from '../store/action.ts';
+import { ListCities } from '../list-cities.tsx';
+import { MainEmpty } from '../../pages/main-empty.tsx';
+import { useAppSelector, useAppDispatch } from '../../hooks/index.ts';
+import { cityAction } from '../../store/action.ts';
 import { MainCards } from './main-cards.tsx';
 
 
@@ -22,7 +22,7 @@ function PageMain() {
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
-          <ListCities currentCity={currentCity} handleLocationClick={handleLocationClick} />
+          <ListCities currentCity={currentCity} onLocationClick={handleLocationClick} />
         </section>
       </div>
       {offers.some((offer) => offer.city.name === currentCity) ?

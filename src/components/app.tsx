@@ -1,4 +1,4 @@
-import { PageMain } from './main.tsx';
+import { PageMain } from './main/main.tsx';
 import { Login } from './login.tsx';
 import { Layout } from './layout.tsx';
 import { Page404 } from '../pages/page404.tsx';
