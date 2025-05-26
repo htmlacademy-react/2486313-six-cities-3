@@ -2,15 +2,9 @@ import { TypeCard } from '../const/const.ts';
 
 export type CardProps = {
   typeCard: TypeCard;
-  offer: {
-    id: string;
-    isPremium: boolean;
-    price: number;
-    rating: number;
-    title: string;
-    type: string;
-    previewImage: string;
-  };
+  offer: OfferType;
+  onOfferHover?: (offer : OfferType) => void;
+  onOfferLeave?: () => void;
 };
 
 export type Location = {

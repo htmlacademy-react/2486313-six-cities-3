@@ -1,9 +1,9 @@
 import { Town } from './town.tsx';
 import { cities } from '../const/const.ts';
 
-export function ListCities ({currentCity, handleLocationClick} : {
+export function ListCities ({currentCity, onLocationClick} : {
   currentCity: string;
-  handleLocationClick: (city: string) => void;
+  onLocationClick: (city: string) => void;
 }) {
   return (
     <ul className="locations__list tabs__list">
@@ -14,7 +14,7 @@ export function ListCities ({currentCity, handleLocationClick} : {
               key={city}
               city={city}
               isCheck={city === currentCity}
-              handleLocationClick={handleLocationClick}
+              onLocationClick={onLocationClick}
             />
           ))
       }

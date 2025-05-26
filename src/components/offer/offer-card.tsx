@@ -7,13 +7,14 @@ import { OfferFeature } from './offer-feature.tsx';
 import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { ReviewData } from '../../types/types.ts';
+import { ReviewData, OfferType } from '../../types/types.ts';
 import { useAppSelector } from '../../hooks/index.ts';
 import Map from '../map.tsx';
 
 
 function OfferCard() {
   const params = useParams();
+  const [activeOfferHover, setActiveOfferHover] = useState<OfferType>();
 
   const offers = useAppSelector((store) => store.listOffers);
 
@@ -77,6 +78,14 @@ function OfferCard() {
     },
     ...comments]);
   };
+
+  function handleOfferHover (offerHover : OfferType) {
+    setActiveOfferHover(offerHover);
+  }
+
+  function handleOfferLeave () {
+    setActiveOfferHover(undefined);
+  }
 
   if (offer !== undefined) {
     const rating = offer.rating * 20;
@@ -146,7 +155,7 @@ function OfferCard() {
             </div>
           </div>
           <section className="offer__map map">
-            <Map city={offers[1].location} points={offers.slice(0,3)} selectedPoint={undefined}/>
+            <Map city={offers[1].location} points={offers.slice(0,3)} selectedPoint={activeOfferHover}/>
           </section>
         </section>
         <div className="container">
@@ -154,7 +163,7 @@ function OfferCard() {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               { offers.slice(0,3).map((offerPlace) =>
-                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer}/>
+                <Card key={offerPlace.id} offer={offerPlace} typeCard={TypeCard.Offer} onOfferHover={handleOfferHover} onOfferLeave={handleOfferLeave}/>
               )}
             </div>
           </section>

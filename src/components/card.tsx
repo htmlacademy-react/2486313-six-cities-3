@@ -4,8 +4,7 @@ import { RATING_NUMBER } from '../const/const.ts';
 import classNames from 'classnames';
 import { TypeCard } from '../const/const.ts';
 
-
-function Card({typeCard, offer}: CardProps) {
+export function Card({typeCard, offer, onOfferHover, onOfferLeave}: CardProps) {
 
   const {id, isPremium, previewImage, price, rating, title, type} = offer;
 
@@ -25,7 +24,10 @@ function Card({typeCard, offer}: CardProps) {
   const imageHeight = typeCard === TypeCard.Favorites ? 110 : 200;
 
   return (
-    <article className={`${cardClass} place-card`}>
+    <article className={`${cardClass} place-card`}
+      onMouseEnter={() => onOfferHover(offer)}
+      onMouseLeave={() => onOfferLeave()}
+    >
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className={`${imageClass} place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
@@ -68,5 +70,3 @@ function Card({typeCard, offer}: CardProps) {
     </article>
   );
 }
-
-export {Card};

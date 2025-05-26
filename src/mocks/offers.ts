@@ -10,18 +10,92 @@ export const offers: Array<OfferType> = [
       name: 'Paris',
       location: {
         latitude: 48.856667,
-        longitude: 2.350833,
+        longitude: 2.330833,
         zoom: 12
       }
     },
     location: {
       latitude: 48.856667,
-      longitude: 2.350833,
+      longitude: 2.330833,
       zoom: 12
     },
     isFavorite: true,
     isPremium: true,
     rating: 3.8,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'img/avatar-angelina.jpg',
+      isPro: false,
+    },
+    images: [
+      'img/apartment-03.jpg',
+    ],
+    maxAdults: 4,
+    previewImage: 'img/apartment-small-03.jpg'
+  },
+  {
+    id: '27cd0cb9-1380-4b6c-aabe-580dd0554b3',
+    title: 'Wood and stone place',
+    type: 'Hotel',
+    price: 11,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.876667,
+        longitude: 2.310833,
+        zoom: 12
+      }
+    },
+    location: {
+      latitude: 48.876667,
+      longitude: 2.310833,
+      zoom: 12
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 3,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'img/avatar-angelina.jpg',
+      isPro: false,
+    },
+    images: [
+      'img/apartment-03.jpg',
+    ],
+    maxAdults: 4,
+    previewImage: 'img/apartment-small-03.jpg'
+  },
+  {
+    id: '27cd0cb9-1380-4b6c-aabe-580dd05484b8',
+    title: 'Wood and stone place',
+    type: 'Hotel',
+    price: 1000,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.886667,
+        longitude: 2.380833,
+        zoom: 12
+      }
+    },
+    location: {
+      latitude: 48.886667,
+      longitude: 2.380833,
+      zoom: 12
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4,
     description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     bedrooms: 3,
     goods: [

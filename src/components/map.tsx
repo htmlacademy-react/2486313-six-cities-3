@@ -44,7 +44,7 @@ function Map({city, points, selectedPoint} : MapProps): JSX.Element {
 
         marker
           .setIcon(
-            selectedPoint && point.city.name === selectedPoint.city.name
+            selectedPoint
               ? currentCustomIcon
               : defaultCustomIcon
           )
