@@ -35,5 +35,15 @@ export const MAX_RATING_VALUE = 5;
 
 export const Action = {
   CITY: 'CITY',
-  LIST_OFFERS: 'LIST_OFFERS'
+  LIST_OFFERS: 'LIST_OFFERS',
+  SORT_OFFERS: 'SORT_OFFERS',
+  OFFER_HOVER: 'OFFER_HOVER',
+  OFFER_LEAVE: 'OFFER_LEAVE',
+};
+
+export const sortTypes = {
+  popular: 'Popular',
+  priceLowToHigh: 'Price: low to high',
+  priceHighToLow: 'Price: high to low',
+  topRatedFirst: 'Top rated first'
 };

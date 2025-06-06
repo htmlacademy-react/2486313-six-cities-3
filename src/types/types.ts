@@ -80,3 +80,8 @@ export type ReviewData = {
 export type OfferReviewProps = {
   info: ReviewData;
 }
+
+export type SortProps = {
+  onSortChange: (newSortType : string) => void;
+  activeSort: string;
+}

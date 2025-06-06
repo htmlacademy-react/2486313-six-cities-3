@@ -8,8 +8,7 @@ import { MainCards } from './main-cards.tsx';
 function PageMain() {
 
   const currentCity = useAppSelector((store) => store.city);
-
-  const offers = useAppSelector((store) => store.listOffers);
+  const activeOffers = useAppSelector((store) => store.activeListOffers);
 
   const dispatch = useAppDispatch();
 
@@ -25,8 +24,8 @@ function PageMain() {
           <ListCities currentCity={currentCity} onLocationClick={handleLocationClick} />
         </section>
       </div>
-      {offers.some((offer) => offer.city.name === currentCity) ?
-        (<MainCards offers={offers} currentCity={currentCity}/>) :
+      {activeOffers ?
+        (<MainCards currentCity={currentCity} activeOffers={activeOffers}/>) :
         (<MainEmpty currentCity={currentCity} />)}
     </main>
   );

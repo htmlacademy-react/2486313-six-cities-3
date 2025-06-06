@@ -1,26 +1,14 @@
-
+import { sortTypes } from '../../const/const.ts';
 import { useState } from 'react';
-
-type SortProps = {
-  onSortChange: (newSortType : string) => void;
-}
+import { SortProps } from '../../types/types.ts';
 
 
-export function MainSort({ onSortChange } : SortProps) {
-  const [activeSort, setActiveSort] = useState('popular');
+export function MainSort({ onSortChange, activeSort } : SortProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSortClick = (sortType : string) => {
-    setActiveSort(sortType);
     onSortChange(sortType);
     setIsOpen(false);
-  };
-
-  const sortTypes = {
-    popular: 'Popular',
-    priceLowToHigh: 'Price: low to high',
-    priceHighToLow: 'Price: high to low',
-    topRatedFirst: 'Top rated first'
   };
 
   return (

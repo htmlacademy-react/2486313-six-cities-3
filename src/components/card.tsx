@@ -25,8 +25,8 @@ export function Card({typeCard, offer, onOfferHover, onOfferLeave}: CardProps) {
 
   return (
     <article className={`${cardClass} place-card`}
-      onMouseEnter={() => onOfferHover(offer)}
-      onMouseLeave={() => onOfferLeave()}
+      onMouseEnter={() => onOfferHover ? onOfferHover(offer) : ''}
+      onMouseLeave={() => onOfferLeave ? onOfferLeave() : ''}
     >
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ''}
       <div className={`${imageClass} place-card__image-wrapper`}>

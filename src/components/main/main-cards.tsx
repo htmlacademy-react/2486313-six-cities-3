@@ -1,40 +1,32 @@
 import { Card } from '../card.tsx';
 import { TypeCard } from '../../const/const.ts';
 import Map from '../map.tsx';
-import { OfferType, PropsCards } from '../../types/types.ts';
+import { OfferType } from '../../types/types.ts';
 import { MainSort } from './main-sort.tsx';
-import { useState, useMemo } from 'react';
+import { useAppSelector, useAppDispatch } from '../../hooks/index.ts';
+import { offerHoverAction, offerLeaveAction, sortAction } from '../../store/action.ts';
 
-export function MainCards({offers, currentCity} : PropsCards) {
-  const [sortType, setSortType] = useState('popular');
-  const [activeOfferHover, setActiveOfferHover] = useState<OfferType>();
+type MainCardsProps = {
+  currentCity: string;
+  activeOffers: OfferType[];
+}
 
-  const sortedOffers = useMemo(() => {
-    const cityOffers = offers.filter((offer) => offer.city.name === currentCity);
+export function MainCards({ currentCity, activeOffers } : MainCardsProps) {
 
-    switch(sortType) {
-      case 'priceLowToHigh':
-        return [...cityOffers].sort((a, b) => a.price - b.price);
-      case 'priceHighToLow':
-        return [...cityOffers].sort((a, b) => b.price - a.price);
-      case 'topRatedFirst':
-        return [...cityOffers].sort((a, b) => b.rating - a.rating);
-      default:
-        return cityOffers;
-    }
-
-  }, [offers, currentCity, sortType]);
+  const activeOfferHover = useAppSelector((store) => store.activeOfferHover);
+  const sortType = useAppSelector((store) => store.sortType);
+  const dispatch = useAppDispatch();
 
   function handleSortChange (newSortType : string) {
-    setSortType(newSortType);
+    dispatch(sortAction(newSortType));
   }
 
   function handleOfferHover (offer : OfferType) {
-    setActiveOfferHover(offer);
+    dispatch(offerHoverAction(offer));
   }
 
   function handleOfferLeave () {
-    setActiveOfferHover(undefined);
+    dispatch(offerLeaveAction());
   }
 
 
@@ -44,11 +36,11 @@ export function MainCards({offers, currentCity} : PropsCards) {
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
           <b className="places__found">
-            {offers.filter((offer) => offer.city.name === currentCity).length} places to stay in {currentCity}
+            {activeOffers.length} places to stay in {currentCity}
           </b>
-          <MainSort onSortChange={handleSortChange}/>
+          <MainSort onSortChange={handleSortChange} activeSort={sortType} />
           <div className="cities__places-list places__list tabs__content">
-            {sortedOffers
+            {activeOffers
               .map((offer) => (
                 <Card
                   key={offer.id}
@@ -64,8 +56,8 @@ export function MainCards({offers, currentCity} : PropsCards) {
           <section className="cities__map map">
             <Map
               key={currentCity}
-              city={offers.find((offer) => offer.city.name === currentCity)?.city.location}
-              points={offers.filter((offer) => offer.city.name === currentCity)}
+              city={activeOffers[0].city.location}
+              points={activeOffers}
               selectedPoint={activeOfferHover}
             />
           </section>

@@ -8,13 +8,15 @@ import { TypeCard, offerImage, offerInside } from '../../const/const.ts';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { ReviewData, OfferType } from '../../types/types.ts';
-import { useAppSelector } from '../../hooks/index.ts';
+import { useAppSelector, useAppDispatch } from '../../hooks/index.ts';
 import Map from '../map.tsx';
+import { offerHoverAction, offerLeaveAction } from '../../store/action.ts';
 
 
 function OfferCard() {
   const params = useParams();
-  const [activeOfferHover, setActiveOfferHover] = useState<OfferType>();
+  const activeOfferHover = useAppSelector((store) => store.activeOfferHover);
+  const dispatch = useAppDispatch();
 
   const offers = useAppSelector((store) => store.listOffers);
 
@@ -80,11 +82,11 @@ function OfferCard() {
   };
 
   function handleOfferHover (offerHover : OfferType) {
-    setActiveOfferHover(offerHover);
+    dispatch(offerHoverAction(offerHover));
   }
 
   function handleOfferLeave () {
-    setActiveOfferHover(undefined);
+    dispatch(offerLeaveAction());
   }
 
   if (offer !== undefined) {
@@ -155,7 +157,7 @@ function OfferCard() {
             </div>
           </div>
           <section className="offer__map map">
-            <Map city={offers[1].location} points={offers.slice(0,3)} selectedPoint={activeOfferHover}/>
+            <Map city={offers[0].location} points={offers.slice(0,3)} selectedPoint={activeOfferHover}/>
           </section>
         </section>
         <div className="container">
