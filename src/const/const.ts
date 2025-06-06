@@ -46,4 +46,5 @@ export const sortTypes = {
   priceLowToHigh: 'Price: low to high',
   priceHighToLow: 'Price: high to low',
   topRatedFirst: 'Top rated first'
-};
+} as const;
+

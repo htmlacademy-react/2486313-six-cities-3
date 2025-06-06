@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { cityAction, sortAction, offerHoverAction, offerLeaveAction } from './action.ts';
 import { offers } from '../mocks/offers.ts';
-import { OfferType } from '../types/types.ts';
+import { OfferType, SortType } from '../types/types.ts';
 
 type AppState = {
   city: string;
-  sortType: string;
+  sortType: SortType;
   listOffers: typeof offers;
   activeListOffers: typeof offers;
   activeOfferHover: OfferType | undefined;
@@ -13,7 +13,7 @@ type AppState = {
 
 const initialState: AppState = {
   city: 'Paris',
-  sortType: 'Popular',
+  sortType: 'popular',
   listOffers: offers,
   activeListOffers: offers.filter((offer) => offer.city.name === 'Paris'),
   activeOfferHover: undefined

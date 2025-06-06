@@ -24,9 +24,9 @@ function PageMain() {
           <ListCities currentCity={currentCity} onLocationClick={handleLocationClick} />
         </section>
       </div>
-      {activeOffers ?
-        (<MainCards currentCity={currentCity} activeOffers={activeOffers}/>) :
-        (<MainEmpty currentCity={currentCity} />)}
+      {activeOffers
+        ? (<MainCards currentCity={currentCity} activeOffers={activeOffers}/>)
+        : (<MainEmpty currentCity={currentCity}/>)}
     </main>
   );
 }

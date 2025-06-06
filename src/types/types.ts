@@ -1,4 +1,4 @@
-import { TypeCard } from '../const/const.ts';
+import { TypeCard, sortTypes } from '../const/const.ts';
 
 export type CardProps = {
   typeCard: TypeCard;
@@ -82,6 +82,9 @@ export type OfferReviewProps = {
 }
 
 export type SortProps = {
-  onSortChange: (newSortType : string) => void;
-  activeSort: string;
+  onSortChange: (newSortType : SortType) => void;
+  activeSort: SortType;
 }
+
+export type SortType = keyof typeof sortTypes;
+

@@ -1,7 +1,7 @@
 import { Card } from '../card.tsx';
 import { TypeCard } from '../../const/const.ts';
 import Map from '../map.tsx';
-import { OfferType } from '../../types/types.ts';
+import { OfferType, SortType } from '../../types/types.ts';
 import { MainSort } from './main-sort.tsx';
 import { useAppSelector, useAppDispatch } from '../../hooks/index.ts';
 import { offerHoverAction, offerLeaveAction, sortAction } from '../../store/action.ts';
@@ -17,7 +17,7 @@ export function MainCards({ currentCity, activeOffers } : MainCardsProps) {
   const sortType = useAppSelector((store) => store.sortType);
   const dispatch = useAppDispatch();
 
-  function handleSortChange (newSortType : string) {
+  function handleSortChange (newSortType : SortType) {
     dispatch(sortAction(newSortType));
   }
 

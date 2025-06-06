@@ -1,12 +1,12 @@
 import { sortTypes } from '../../const/const.ts';
 import { useState } from 'react';
-import { SortProps } from '../../types/types.ts';
+import { SortProps, SortType } from '../../types/types.ts';
 
 
 export function MainSort({ onSortChange, activeSort } : SortProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleSortClick = (sortType : string) => {
+  const handleSortClick = (sortType : SortType) => {
     onSortChange(sortType);
     setIsOpen(false);
   };
@@ -26,16 +26,19 @@ export function MainSort({ onSortChange, activeSort } : SortProps) {
       </span>
       {isOpen && (
         <ul className="places__options places__options--custom places__options--opened">
-          {Object.entries(sortTypes).map(([type, label]) => (
-            <li
-              key={type}
-              className={`places__option ${activeSort === type ? 'places__option--active' : ''}`}
-              tabIndex={0}
-              onClick={() => handleSortClick(type)}
-            >
-              {label}
-            </li>
-          ))}
+          {Object.keys(sortTypes).map((type) => {
+            const sortType = type as SortType;
+            return (
+              <li
+                key={sortType}
+                className={`places__option ${activeSort === sortType ? 'places__option--active' : ''}`}
+                tabIndex={0}
+                onClick={() => handleSortClick(sortType)}
+              >
+                {sortTypes[sortType]}
+              </li>
+            );
+          })}
         </ul>
       )}
     </form>
