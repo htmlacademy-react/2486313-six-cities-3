@@ -1,16 +1,10 @@
-import { TypeCard } from '../const/const.ts';
+import { TypeCard, sortTypes } from '../const/const.ts';
 
 export type CardProps = {
   typeCard: TypeCard;
-  offer: {
-    id: string;
-    isPremium: boolean;
-    price: number;
-    rating: number;
-    title: string;
-    type: string;
-    previewImage: string;
-  };
+  offer: OfferType;
+  onOfferHover?: (offer : OfferType) => void;
+  onOfferLeave?: () => void;
 };
 
 export type Location = {
@@ -86,3 +80,11 @@ export type ReviewData = {
 export type OfferReviewProps = {
   info: ReviewData;
 }
+
+export type SortProps = {
+  onSortChange: (newSortType : SortType) => void;
+  activeSort: SortType;
+}
+
+export type SortType = keyof typeof sortTypes;
+

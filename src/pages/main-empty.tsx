@@ -1,8 +1,6 @@
 
 
-export function MainEmpty ({currentCity} : {
-  currentCity: string;
-}) {
+export function MainEmpty ({currentCity} : {currentCity: string}) {
   return (
     <div className="cities">
       <div className="cities__places-container cities__places-container--empty container">
